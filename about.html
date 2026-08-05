@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Nobility Glory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --color-bg-dark: #120a0a;
+            --color-bg-light: #f9fafb;
+            --color-bg-card: #ffffff;
+            --color-primary: #ef4444;
+            --color-primary-hover: #dc2626;
+            --color-text-main: #1f2937;
+            --color-text-muted: #6b7280;
+            --color-text-light: #f3f4f6;
+            --color-border: #e5e7eb;
+            --font-main: 'Inter', sans-serif;
+            --font-arabic: 'Cairo', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            --whatsapp-green: #25D366;
+            --whatsapp-hover: #20BD5A;
+            --white: #ffffff;
+            --dark-bg: #0f0808;
+            --dark-bg-2: #1a0e0e;
+            --dark-red: #2a0f0f;
+            --red-accent: #c62828;
+            --red-hover: #e53935;
+            --light-beige: #e8e0d8;
+            --light-bg: #f5f0eb;
+            --text-light: #f0e8e0;
+            --text-muted: #a89888;
+            --text-dark: #1a1a1a;
+            --border-color: #3a2020;
+            --card-bg: #1e1010;
+            --card-bg-light: #ffffff;
+            --transition-smooth: all .35s ease;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-text-main);
+            background-color: var(--dark-red);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; }
+        .text-red { color: var(--color-primary); }
+        .text-dark { color: var(--color-bg-dark); }
+        .font-arabic { font-family: var(--font-arabic); }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: var(--color-primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: white;
+            color: white;
+        }
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--color-bg-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-outline-dark {
+            background-color: transparent;
+            border-color: var(--color-bg-dark);
+            color: var(--color-bg-dark);
+        }
+        .btn-outline-dark:hover {
+            background-color: var(--color-bg-dark);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(18, 10, 10, 0.3);
+        }
+
+        /* --- Layout Utilities --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .section-padding { padding: 5rem 0; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        
+        /* --- Scroll Reveal Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* ===== HEADER ===== */
+.header {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  z-index: 1000;
+  background: var(--white); 
+  padding: 0 40px; 
+  height: 60px;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0; 
+  transition: var(--transition-smooth);
+}
+.header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.1); height: 56px; }
+.header-logo { display: flex; align-items: center; gap: 8px; transition: var(--transition-smooth); }
+.header-logo:hover { transform: scale(1.05); }
+.header-logo img { height: 70px; width: auto; }
+.header-nav { display: flex; align-items: center; gap: 28px; }
+.header-nav a { font-size: 13px; font-weight: 500; color: #333; position: relative; padding: 4px 0; }
+.header-nav a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--red-accent); transition: width 0.3s ease; }
+.header-nav a:hover::after { width: 100%; }
+.header-nav a:hover { color: var(--red-accent); }
+
+.header-right { 
+  display: flex; 
+  align-items: center; 
+  gap: 20px;
+  height: 100%;
+}
+.header-phone { 
+  font-size: 13px; 
+  color: #555; 
+  font-weight: 500; 
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  margin: auto 0;
+}
+.header-phone:hover { color: var(--red-accent); }
+.btn-header {
+  background: var(--red-accent); color: var(--white); padding: 10px 22px;
+  font-size: 13px; font-weight: 600; border: none; cursor: pointer;
+  transition: var(--transition-smooth); display: inline-block; border-radius: 2px;
+  align-self: center;
+  margin: auto 0;
+}
+.btn-header:hover { background: var(--red-hover); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(198,40,40,0.4); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; z-index: 1001; }
+.hamburger span { width: 24px; height: 2px; background: #333; transition: var(--transition-smooth); transform-origin: center; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ===== MOBILE NAV ===== */
+.mobile-nav {
+  display: none; position: fixed; top: 60px; left: 0; right: 0;
+  background: var(--white); padding: 0 40px; border-bottom: 1px solid #e0e0e0;
+  z-index: 999; flex-direction: column; max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.mobile-nav.open { max-height: 500px; padding: 20px 40px; }
+.mobile-nav a { font-size: 15px; font-weight: 500; color: #333; padding: 12px 0; border-bottom: 1px solid #eee; }
+.mobile-nav a:hover { color: var(--red-accent); padding-left: 8px; }
+.mobile-nav .btn-header { margin-top: 12px; text-align: center; }
+.mobile-dropdown { display: none; flex-direction: column; padding-left: 16px; margin-top: 8px; }
+.mobile-dropdown.open { display: flex; }
+.mobile-dropdown a { font-size: 14px; padding: 8px 0; border: none; }
+
+
+        /* --- Hero Section --- */
+        .hero {
+          position: relative; 
+          min-height: 100vh;
+          display: flex; 
+          flex-direction: column; 
+          justify-content: center; 
+          align-items: center;
+          text-align: center; 
+          padding: 120px 40px 60px; 
+          overflow: hidden; 
+          background: #000;
+        }
+        /* Background Image */
+       .hero-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('about-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.hero-image-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+  
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        .breadcrumbs {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .breadcrumbs::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: var(--color-primary);
+        }
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 56px); 
+            font-weight: 800; 
+            line-height: 1.15; 
+            color: var(--white); 
+            margin-bottom: 24px; 
+            letter-spacing: -0.5px; 
+        }
+        .hero h2 {
+            animation: slideUp 1s ease 0.1s both;
+        }
+        .hero p {
+            color: #d1d5db;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            animation: slideUp 1s ease 0.3s both;
+        }
+        .hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Company Profile Section --- */
+        .profile-section { background-color: white; }
+        .section-label {
+            font-size: 0.75rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .section-label::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background-color: var(--color-primary);
+        }
+        
+        .profile-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-bg-dark);
+        }
+        .profile-content p {
+            color: var(--color-text-muted);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .badges {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 2px;
+            width: fit-content;
+            transition: var(--transition);
+        }
+        .badge:hover { transform: translateX(5px); }
+        .badge-red { background-color: var(--color-primary); color: white; }
+        .badge-black { background-color: var(--color-bg-dark); color: white; }
+
+        .profile-image-wrapper { position: relative; }
+        .profile-image {
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .profile-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .profile-image:hover img { transform: scale(1.05); }
+
+        .established-card {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: white;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--color-border);
+            z-index: 10;
+            transition: var(--transition);
+        }
+        .established-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+        .established-card span {
+            font-size: 0.7rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+        }
+        .established-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-bg-dark);
+            margin: 0.25rem 0;
+        }
+        .established-card p {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+
+        /* --- Stats Section --- */
+        .stats-section {
+            background-color: white;
+            padding-bottom: 5rem;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+        .stat-item {
+            padding: 2rem;
+            text-align: left;
+            border-right: 1px solid var(--color-border);
+            transition: var(--transition);
+            position: relative;
+        }
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--color-primary);
+            transition: width 0.4s ease;
+        }
+        .stat-item:hover::after { width: 100%; }
+        .stat-item:last-child { border-right: none; }
+        .stat-item:hover { 
+            background-color: #fafafa;
+            transform: translateY(-5px);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-bg-dark);
+            margin-bottom: 0.25rem;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+
+        /* --- CEO Message Section --- */
+        .ceo-section {
+            background-color: var(--color-bg-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .ceo-section::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 100px; height: 100px;
+            background: linear-gradient(135deg, transparent 50%, #1a1212 50%);
+        }
+
+        .ceo-image-wrapper { position: relative; }
+        .ceo-image {
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .ceo-image img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .ceo-image:hover img { transform: scale(1.05); }
+        
+        .ceo-card {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            background: white;
+            color: var(--color-bg-dark);
+            padding: 1rem;
+            width: 80%;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+        .ceo-card:hover {
+            transform: translateY(-5px);
+        }
+        .ceo-card h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+        .ceo-card p { font-size: 0.75rem; color: var(--color-text-muted); margin: 0; }
+
+        .ceo-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+        .ceo-content h2 span { color: var(--color-primary); font-weight: 600; }
+        .ceo-content p {
+            color: #d1d5db;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .quote-label {
+            font-size: 0.7rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* --- Mission & Vision --- */
+        .mv-section { background-color: var(--color-bg-light); }
+        .mv-header { margin-bottom: 3rem; }
+        .mv-header h2 { font-size: 2rem; color: var(--color-bg-dark); }
+        
+        .mv-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+            position: relative;
+            transition: var(--transition-slow);
+        }
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-primary);
+        }
+        .mv-card.mission { border-left: 4px solid var(--color-primary); }
+        
+        .icon-box {
+            width: 40px; height: 40px;
+            background-color: #fee2e2;
+            color: var(--color-primary);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        .mv-card:hover .icon-box {
+            transform: rotate(360deg) scale(1.1);
+            background-color: var(--color-primary);
+            color: white;
+        }
+        .mv-card h3 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--color-bg-dark); }
+        .mv-card p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1.5rem; }
+        
+        .mv-list li {
+            font-size: 0.85rem;
+            color: var(--color-text-main);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            transition: var(--transition);
+        }
+        .mv-list li:hover { transform: translateX(5px); }
+        .mv-list li::before {
+            content: '—';
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        /* --- CTA / Contact Section --- */
+        .cta-section { background-color: #f3f0eb; }
+        .cta-image-wrapper { position: relative; }
+        .cta-image { border-radius: 4px; overflow: hidden; }
+        .cta-image img { 
+            width: 100%; 
+            height: auto;
+            transition: transform 0.8s ease;
+        }
+        .cta-image:hover img { transform: scale(1.03); }
+        
+        .cr-card {
+            position: absolute;
+            bottom: 20px;
+            right: 0;
+            background: white;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            text-align: right;
+            transition: var(--transition);
+        }
+        .cr-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -5px rgba(0,0,0,0.15);
+        }
+        .cr-card span { font-size: 0.7rem; color: var(--color-text-muted); display: block; }
+        .cr-card h3 { font-size: 1.25rem; color: var(--color-bg-dark); margin: 0.25rem 0; }
+        .cr-card .status { font-size: 0.7rem; color: var(--color-primary); font-weight: 700; }
+        .cr-card .status span { color: var(--color-text-muted); font-weight: 400; display: inline; }
+
+        .cta-content h2 { font-size: 2.5rem; color: var(--color-bg-dark); margin-bottom: 1rem; }
+        .cta-content p { color: var(--color-text-muted); margin-bottom: 2rem; }
+        .cta-buttons { display: flex; flex-direction: column; gap: 1rem; max-width: 400px; }
+        
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+        .contact-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid var(--color-border);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .contact-box:hover { 
+            border-color: var(--color-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(239, 68, 68, 0.15);
+        }
+        .contact-icon {
+            width: 40px; height: 40px;
+            background: #fee2e2;
+            color: var(--color-primary);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        .contact-box:hover .contact-icon {
+            background: var(--color-primary);
+            color: white;
+            transform: rotate(360deg);
+        }
+        .contact-text span { display: block; font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; }
+        .contact-text p { font-size: 0.9rem; font-weight: 600; color: var(--color-bg-dark); margin: 0; }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--color-bg-dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-logo img { 
+  height: 60px; 
+  margin-bottom: 16px; 
+  transition: var(--transition-smooth); 
+  filter: drop-shadow(0px 0px 12px white);
+}
+        .footer-desc { color: #9ca3af; font-size: 0.9rem; margin-bottom: 1.5rem; max-width: 300px; }
+        .footer-tags { display: flex; gap: 0.5rem; }
+        .footer-tag { border: 1px solid #4b5563; padding: 0.25rem 0.5rem; font-size: 0.7rem; color: #9ca3af; transition: var(--transition); }
+        .footer-tag:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+        .footer-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #9ca3af; margin-bottom: 1.5rem; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a { color: #d1d5db; font-size: 0.9rem; transition: var(--transition); display: inline-block; }
+        .footer-links a:hover { color: var(--color-primary); transform: translateX(5px); }
+
+        .footer-bottom {
+            border-top: 1px solid #1f2937;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+        .footer-bottom a { color: var(--color-primary); transition: var(--transition); }
+        .footer-bottom a:hover { text-decoration: underline; }
+
+        /* --- Scroll Progress Bar --- */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary), #f97316);
+            z-index: 1000;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* --- Back to Top Button --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.5);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .grid-2, .grid-4, .stats-grid, .footer-grid { grid-template-columns: 1fr 1fr; }
+            .stat-item { border-right: none; border-bottom: 1px solid var(--color-border); }
+            .stat-item:nth-child(even) { border-right: none; }
+            .contact-info-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-4, .stats-grid, .footer-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .cta-content h2 { font-size: 1.8rem; }
+            .established-card, .ceo-card, .cr-card { 
+                position: relative; 
+                bottom: auto; 
+                left: auto; 
+                right: auto; 
+                width: 100%; 
+                margin-top: 1rem; 
+            }
+            .profile-image-wrapper, .ceo-image-wrapper, .cta-image-wrapper { 
+                display: flex; 
+                flex-direction: column; 
+            }
+            .nav-actions .btn { display: none; }
+            .hero-buttons { flex-direction: column; }
+            .cta-buttons { max-width: 100%; }
+        }
+
+        /* --- Reduced Motion --- */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        /* ===== WHATSAPP FLOATING BUTTON ===== */
+.whatsapp-float { 
+  position: fixed; 
+  bottom: 30px; 
+  right: 30px; 
+  z-index: 998; 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+}
+.whatsapp-btn { 
+  width: 60px; 
+  height: 60px; 
+  background: var(--whatsapp-green); 
+  border-radius: 50%; 
+  display: flex; 
+  align-items:center; 
+  justify-content: center; 
+  cursor: pointer; 
+  transition: var(--transition-smooth); 
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); 
+  position: relative; 
+  text-decoration: none; 
+}
+.whatsapp-btn::before { content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%; background: var(--whatsapp-green); animation: whatsapp-pulse 2s ease-out infinite; z-index: -1; }
+.whatsapp-btn::after { content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%; background: var(--whatsapp-green); animation: whatsapp-pulse 2s ease-out infinite 0.5s; z-index: -1; }
+.whatsapp-btn:hover { background: var(--whatsapp-hover); transform: scale(1.1); box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); }
+.whatsapp-btn svg { width: 30px; height: 30px; fill: var(--white); }
+.whatsapp-tooltip { background: var(--white); color: var(--text-dark); padding: 10px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.15); white-space: nowrap; opacity: 0; transform: translateX(10px); transition: var(--transition-smooth); pointer-events: none; }
+.whatsapp-float:hover .whatsapp-tooltip { opacity: 1; transform: translateX(0); }
+@keyframes whatsapp-pulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.8); opacity: 0; } }
+
+/* ===== SCROLL TO TOP ===== */
+.scroll-top { position: fixed; bottom: 100px; right: 36px; width: 44px; height: 44px; background: var(--red-accent); color: var(--white); border: none; border-radius: 50%; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: var(--transition-smooth); z-index: 997; box-shadow: 0 4px 15px rgba(198, 40, 40, 0.4); }
+.scroll-top.visible { opacity: 1; visibility: visible; }
+.scroll-top:hover { background: var(--red-hover); transform: translateY(-3px); }
+
+/* ===== ANIMATIONS ===== */
+.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.fade-in-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-in-left.visible { opacity: 1; transform: translateX(0); }
+.fade-in-right { opacity: 0; transform: translateX(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-in-right.visible { opacity: 1; transform: translateX(0); }
+.delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; } .delay-5 { transition-delay: 0.5s; } .delay-6 { transition-delay: 0.6s; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .service-grid, .screening-header { grid-template-columns: 1fr; gap: 40px; }
+  .steps-grid, .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: 1fr; gap: 30px; }
+  .cta-container { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  .header { padding: 0 20px; }
+  .header-nav, .header-phone { display: none; }
+  .hamburger { display: flex; }
+  .mobile-nav { display: flex; }
+  .hero { padding: 100px 20px 40px; }
+  .hero-content { padding: 30px 20px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-item { border-right: none; border-bottom: 1px solid #d0c8c0; padding: 24px 20px; }
+  .stat-item:last-child { border-bottom: none; }
+  .section-dark, .section-dark-red, .section-light, .cta-section, .trusted-section { padding: 60px 20px; }
+  .steps-grid, .categories-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .trusted-logos { gap: 16px; }
+  .trusted-logo { font-size: 13px; padding: 12px 16px; }
+  .hero-buttons, .cta-buttons { flex-direction: column; align-items: center; }
+  .whatsapp-float { bottom: 20px; right: 20px; }
+  .whatsapp-btn { width: 54px; height: 54px; }
+  .whatsapp-btn svg { width: 26px; height: 26px; }
+  .scroll-top { bottom: 90px; right: 26px; width: 40px; height: 40px; }
+  .whatsapp-tooltip { display: none; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 26px; }
+  .stat-number { font-size: 36px; }
+  .section-title { font-size: 24px; }
+}
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+<header class="header" id="header">
+  <a href="index.html" class="header-logo"><img src="logo.png" alt="Nobility Glory Logo"></a>
+  <nav class="header-nav">
+    <a href="index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#coverage">Coverage</a>
+    <a href="#">Documents</a>
+    
+  </nav>
+  <div class="header-right">
+    <a href="tel:+966539430373" class="header-phone">+966 059 465 8685</a>
+    <a href="#request" class="btn-header">Request Manpower</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+<!-- mObail nab-->
+<div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#coverage">Coverage</a>
+    <a href="#">Documents</a>
+    <a href="Request.html" class="btn-header">Request Manpower</a>
+</div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+  <div class="hero-image-bg"></div>
+        <div class="container">
+            <h2 class="font-arabic reveal delay-1" style="font-size: 1.2rem; color: #d1d5db; margin-bottom: 0.5rem;">نبالة المجد للخدمات الصناعية <span style="font-size: 0.8rem; border: 1px solid #ef4444; padding: 2px 6px; border-radius: 4px; color: #ef4444; margin-left: 10px;">CR PENDING</span></h2>
+            <h1 class="reveal delay-2">About <span class="text-red">Nobility Glory</span></h1>
+            <p class="reveal delay-3">Founded in 2016 in Umluj, Tabuk Region, Nobility Glory grew from a single conviction: EPC contractors on the Kingdom's largest builds shouldn't have to manage five vendors to get five essential services.</p>
+            <div class="hero-buttons reveal delay-4">
+                <a href="#" class="btn btn-primary">
+                    Company Profile (PDF)
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                </a>
+                <a href="#request" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Profile -->
+    <section class="section-padding profile-section">
+        <div class="container grid-2" id="about">
+            <div class="profile-content reveal-left">
+                <div class="section-label">Company Profile</div>
+                <h2>One partner, five services, built for the Kingdom's <span class="text-red">giga-projects.</span></h2>
+                <p>Nobility Glory Company Ltd. is a Saudi-registered enterprise operating five integrated service lines across the Kingdom's largest industrial developments: manpower supply, heavy equipment rental, fuel supply, scrap collection and recycling, and camp catering.</p>
+                <p>Founded in 2016 by Sumon Rayhan, the company was built on a straightforward premise: EPC contractors shouldn't have to stitch together five separate vendors to cover what a single site actually needs to run. Every service line reports through one accountable relationship, not five separate contracts, wherever in the Kingdom that project sits.</p>
+                
+                <div class="badges">
+                    <span class="badge badge-red">All Five Services, One Accountable Contract</span>
+                    <span class="badge badge-black">Saudi-Registered, Built to Scale Nationwide</span>
+                    <span class="badge badge-black">Vision 2030 Aligned</span>
+                </div>
+            </div>
+            
+            <div class="profile-image-wrapper reveal-right">
+                <div class="profile-image">
+                    <img src="Heavy Equipment Rental.jpg" alt="Construction workers">
+                </div>
+                <div class="established-card">
+                    <span>Established</span>
+                    <h3>2016</h3>
+                    <p>Umluj · Tabuk Region</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid reveal-scale">
+                <div class="stat-item">
+                    <div class="stat-number text-red"><span class="counter" data-target="850">0</span>+</div>
+                    <div class="stat-label">Skilled Workforce</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number text-red"><span class="counter" data-target="3.1" data-decimal="true">0</span>M+</div>
+                    <div class="stat-label">Safe Man-Hours</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number text-red"><span class="counter" data-target="17">0</span>+</div>
+                    <div class="stat-label">Active Client Relationships</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number text-dark"><span class="counter" data-target="5">0</span></div>
+                    <div class="stat-label">Integrated Service Lines</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO Message -->
+    <section class="section-padding ceo-section">
+        <div class="container grid-2">
+            <div class="ceo-image-wrapper reveal-left">
+                <div class="ceo-image">
+                    <img src="sumon-rayhan.jpg" alt="Sumon Rayhan">
+                </div>
+                <div class="ceo-card">
+                    <h4>Sumon Rayhan</h4>
+                    <p>Founder & Chief Executive Officer<br>Nobility Glory Company Ltd.</p>
+                </div>
+            </div>
+            
+            <div class="ceo-content reveal-right">
+                <div class="section-label" style="color: var(--color-primary);">Message from the CEO</div>
+                <span class="quote-label">"Five services, one accountable partner."</span>
+                <h2>"I started Nobility Glory in 2016 because every EPC contractor I spoke with in Tabuk Region managed the same headache: five different vendors for five different needs, none of them talking to each other. <span class="text-red">We built one company to close that gap.</span>"</h2>
+                <p>Since then, that founding idea has grown into a workforce of skilled personnel, an owned equipment fleet, and active relationships across seventeen client organizations working the Kingdom's largest developments.</p>
+                <p>Every project we take on — whether it's manpower for a desalination plant or fuel delivery to a remote site — runs on the same standard: certified people, documented processes, and a single point of accountability.</p>
+                <a href="Request.html" class="btn btn-primary" style="margin-top: 1rem;">
+                    Connect with Leadership
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section-padding mv-section">
+        <div class="container">
+            <div class="mv-header reveal">
+                <div class="section-label">Mission & Vision</div>
+                <h2>What we stand for. <span class="text-red">Where we're heading.</span></h2>
+            </div>
+            
+            <div class="grid-2">
+                <div class="mv-card mission reveal delay-1">
+                    <div class="icon-box">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </div>
+                    <span style="font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.5rem;">Our Mission</span>
+                    <h3>Operational reliability, one contract at a time.</h3>
+                    <p>To give EPC contractors on the Kingdom's largest developments a single, accountable source for the labor, equipment, fuel, waste recovery and catering their sites depend on — without the coordination cost of managing five separate vendors.</p>
+                    <ul class="mv-list">
+                        <li>Five services, one point of contact</li>
+                        <li>Positioned close to NEOM and the Red Sea Project</li>
+                        <li>Documented process across every service line</li>
+                    </ul>
+                </div>
+
+                <div class="mv-card reveal delay-2">
+                    <div class="icon-box">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <span style="font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.5rem;">Our Vision</span>
+                    <h3>To be the Kingdom's most complete operational partner for EPC contractors, wherever the work is.</h3>
+                    <p>We aim to be the vendor a contractor calls first — not because we're the largest name in the Kingdom, but because we're the most complete partner for what a site actually needs to run, on any project we take on.</p>
+                    <ul class="mv-list">
+                        <li>Depth across five services, not scale in just one</li>
+                        <li>Growth aligned with Vision 2030's industrial goals</li>
+                        <li>Built for giga-projects, not positioned as a regional alternative to them</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact Section -->
+    <section class="section-padding cta-section" id="request">
+        <div class="container">
+            <div class="grid-2" style="align-items: center;">
+                <div class="cta-image-wrapper reveal-left">
+                    <div class="cta-image">
+                        <img src="sumon-rayhan2.jpg" alt="Professional man">
+                    </div>
+                    <div class="cr-card">
+                        <span>SAUDI CR</span>
+                        <h3>4701103544</h3>
+                        <div class="status">Active <span>· ZATCA Registered</span></div>
+                    </div>
+                </div>
+                
+                <div class="cta-content reveal-right">
+                    <div class="section-label">Let's Build Together</div>
+                    <h2>Built to be the only call <span class="text-red">you need to make.</span></h2>
+                    <p>Request our company profile, or talk to the team directly about your site's requirements.</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">
+                            Company Profile — تحميل الملف
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                        </a>
+                        <a href="Request.html" class="btn btn-outline-dark">
+                            Request a Quote — طلب عرض سعر
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-info-grid">
+                <div class="contact-box reveal delay-1">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div class="contact-text">
+                        <span>Call</span>
+                        <p>+966 059 465 8685</p>
+                    </div>
+                </div>
+                <div class="contact-box reveal delay-2">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="contact-text">
+                        <span>Email</span>
+                        <p> official@nobilityglory.com</p>
+                    </div>
+                </div>
+                <div class="contact-box reveal delay-3">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div class="contact-text">
+                        <span>Visit</span>
+                        <p>Umluj 48313, KSA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="reveal">
+                    <a href="#" class="footer-logo"><img src="logo.png" alt="Nobility Glory"></a>
+                    <p class="footer-desc">Nobility Glory Company Ltd. Manpower, equipment, fuel, scrap collection and recycling, and camp catering for EPC contractors across Saudi Arabia.</p>
+                    <div class="footer-tags">
+                        <span class="footer-tag">UMLUJ</span>
+                        <span class="footer-tag">TABUK REGION</span>
+                    </div>
+                </div>
+                <div class="footer-col reveal delay-1">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="Manpower Supply.html">Manpower Supply</a></li>
+                        <li><a href="Heavy Equipment Rental.html">Equipment Rental</a></li>
+                        <li><a href="Fuel Supply.html">Fuel Supply</a></li>
+                        <li><a href="Scrap Collection & Recycling.html">Scrap Trading</a></li>
+                        <li><a href="Catering Services.html">Catering</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col reveal delay-2">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+966 059 465 8685">+966 059 465 8685</a></li>
+                        <li><a href="mailto:info@nobilityglory.com">official@nobilityglory.com</a></li>
+                        <li><a>Umluj · Tabuk Region</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nobility Glory. All rights reserved.</p>
+                <p>Developed by <a href="#">Ali Silam</a></p>
+            </div>
+        </div>
+    </footer>
+
+      <!-- WHATSAPP FLOATING BUTTON -->
+<div class="whatsapp-float">
+  <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
+  <a href="https://wa.me/966594658685?text=Hello%2C%20I%20would%20like%20to%20request%20manpower%20services." class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.914 15.914 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.338 22.612c-.39 1.1-1.932 2.014-3.178 2.28-.852.18-1.964.324-5.708-1.228-4.792-1.984-7.872-6.826-8.11-7.142-.228-.316-1.916-2.552-1.916-4.868 0-2.316 1.214-3.454 1.648-3.932.39-.428 1.024-.616 1.632-.616.198 0 .376.01.536.018.474.02.712.048 1.024.788.39.926 1.342 3.264 1.46 3.502.12.238.238.552.078.892-.148.348-.278.502-.516.772-.238.27-.462.476-.7.762-.218.258-.464.534-.198.998.266.462 1.184 1.966 2.542 3.178 1.748 1.558 3.228 2.042 3.688 2.272.46.23.73.194 1.002-.114.278-.316 1.188-1.384 1.502-1.856.308-.472.624-.392 1.048-.234.428.158 2.706 1.278 3.17 1.51.462.234.772.348.888.546.116.198.116 1.148-.274 2.248z"/></svg>
+  </a>
+</div>
+
+    <script>
+        // --- Smooth Scroll with Offset for Fixed Header ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // --- Scroll Reveal Animations using Intersection Observer ---
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Don't unobserve to allow re-animation if needed, but for perf:
+                    // revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // --- Animated Counters ---
+        const counters = document.querySelectorAll('.counter');
+        let countersAnimated = false;
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersAnimated) {
+                    countersAnimated = true;
+                    counters.forEach(counter => {
+                        const target = parseFloat(counter.getAttribute('data-target'));
+                        const isDecimal = counter.getAttribute('data-decimal') === 'true';
+                        const duration = 2000;
+                        const startTime = performance.now();
+
+                        const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
+
+                        const updateCounter = (currentTime) => {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const easedProgress = easeOutQuart(progress);
+                            const current = easedProgress * target;
+
+                            if (isDecimal) {
+                                counter.textContent = current.toFixed(1);
+                            } else {
+                                counter.textContent = Math.floor(current);
+                            }
+
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.textContent = isDecimal ? target.toFixed(1) : target;
+                            }
+                        };
+
+                        requestAnimationFrame(updateCounter);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsGrid = document.querySelector('.stats-grid');
+        if (statsGrid) counterObserver.observe(statsGrid);
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        
+        // --- Smooth Image Loading ---
+        document.querySelectorAll('img').forEach(img => {
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.5s ease';
+            if (img.complete) {
+                img.style.opacity = '1';
+            } else {
+                img.addEventListener('load', () => {
+                    img.style.opacity = '1';
+                });
+            }
+        });
+
+        // --- Magnetic Button Effect (subtle) ---
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+        });
+        function toggleMobileNav(){
+
+    document.getElementById("mobileNav").classList.toggle("open");
+
+    document.getElementById("hamburger").classList.toggle("active");
+
+}
+    </script>
+</body>
+</html>

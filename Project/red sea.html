@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nobility Glory - NEOM Megacity Development Project Overview. Industrial support and services for EPC contractors across Saudi Arabia.">
+    <title>NEOM — Manpower & Site Support | Nobility Glory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #E04A3F;
+            --primary-red-hover: #e53935;
+            --dark-navy: #2a0f0f;
+            --dark-navy-light: #2a0f0f;
+            --bg-warm: #F5F0EB;
+            --bg-white: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-gray: #6B7280;
+            --text-light-gray: #9CA3AF;
+            --border-light: #E5E7EB;
+            --gold-accent: #e53935;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+            --font-primary: 'Inter', sans-serif;
+            --font-display: 'Inter', sans-serif;
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --red-hover: #e53935;
+            --red-accent: #c62828;
+            --white: #ffffff;
+            --transition-smooth: all 0.3s ease;
+            --light-bg: #f8f8f8;
+            --whatsapp-green: #25D366;
+            --whatsapp-hover: #20BD5A;
+            
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-dark);
+            background-color: var(--bg-warm);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-base);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== HEADER ===== */
+.header {
+  position: fixed; top: 0; 
+  left: 0; right: 0; 
+  z-index: 1000;
+  background: var(--bg-warm); 
+  padding: 0 40px; 
+  height: 64px;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0; 
+  transition: var(--transition-smooth);
+}
+
+.header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.1); height: 56px; }
+.header-logo { display: flex; align-items: center; gap: 8px; transition: var(--transition-smooth); }
+.header-logo:hover { transform: scale(1.05); }
+.header-logo img { height: 70px; width: auto; }
+.header-nav { display: flex; align-items: center; gap: 28px; }
+.header-nav a { font-size: 13px; font-weight: 500; color: #333; position: relative; padding: 4px 0; }
+.header-nav a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--red-accent); transition: width 0.3s ease; }
+.header-nav a:hover::after { width: 100%; }
+.header-nav a:hover { color: var(--red-accent); }
+
+/* Dropdown Menu */
+.dropdown { position: relative; }
+.dropdown-menu {
+  position: absolute; top: 100%; left: 0;
+  background: var(--white); min-width: 220px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  border-top: 3px solid var(--red-accent);
+  opacity: 0; visibility: hidden;
+  transform: translateY(-10px);
+  transition: var(--transition-smooth);
+  z-index: 1001;
+}
+.dropdown:hover .dropdown-menu {
+  opacity: 1; visibility: visible;
+  transform: translateY(0);
+}
+.dropdown-menu a {
+  display: block; padding: 12px 20px;
+  font-size: 13px; color: #333;
+  border-bottom: 1px solid #f0f0f0;
+}
+.dropdown-menu a:hover {
+  background: var(--light-bg);
+  color: var(--red-accent);
+  padding-left: 24px;
+}
+.dropdown-menu a:last-child { border-bottom: none; }
+
+.header-right { 
+  display: flex; 
+  align-items: center; 
+  gap: 20px;
+  height: 100%;
+}
+.header-phone { 
+  font-size: 13px; 
+  color: #555; 
+  font-weight: 500; 
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  margin: auto 0;
+}
+.header-phone:hover { color: var(--red-accent); }
+.btn-header {
+  background: var(--red-accent); color: var(--white); padding: 10px 22px;
+  font-size: 13px; font-weight: 600; border: none; cursor: pointer;
+  transition: var(--transition-smooth); display: inline-block; border-radius: 2px;
+  align-self: center;
+  margin: auto 0;
+}
+.btn-header:hover { background: var(--red-hover); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(198,40,40,0.4); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; z-index: 1001; }
+.hamburger span { width: 24px; height: 2px; background: #333; transition: var(--transition-smooth); transform-origin: center; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ===== MOBILE NAV ===== */
+.mobile-nav{
+    display:flex;
+    flex-direction:column;
+    position:fixed;
+    top:60px;
+    left:0;
+    width:100%;
+    background:#fff;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease;
+    z-index:999;
+}
+.mobile-nav.open { max-height: 500px; padding: 20px 40px; }
+.mobile-nav a { font-size: 15px; font-weight: 500; color: #333; padding: 12px 0; border-bottom: 1px solid #eee; }
+.mobile-nav a:hover { color: var(--red-accent); padding-left: 8px; }
+.mobile-nav .btn-header { margin-top: 12px; text-align: center; }
+.mobile-dropdown{
+    max-height:0;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    padding-left:16px;
+    transition:max-height .4s ease;
+}
+
+.mobile-dropdown.open{
+    max-height:300px;
+}
+.mobile-dropdown a { font-size: 14px; padding: 8px 0; border: none; }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            height: 420px;
+            margin-top: 64px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/red sea.jpg');
+            transform: scale(1.05);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: transform 8s ease;
+        }
+
+        .hero:hover .hero-bg {
+            transform: scale(1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 48px 48px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--primary-red);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .hero-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.9rem;
+        }
+
+        .hero-location svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--primary-red);
+        }
+
+        /* ===== PROJECT OVERVIEW SECTION ===== */
+        .project-section {
+            padding: 64px 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .section-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .section-text {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 20px 24px;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .info-card-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-light-gray);
+            margin-bottom: 6px;
+        }
+
+        .info-card-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* Project Description */
+        .project-description {
+            margin-bottom: 40px;
+        }
+
+        .project-description .section-heading {
+            margin-bottom: 16px;
+        }
+
+        .project-description p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        /* Project Gallery */
+        .project-gallery {
+            margin-bottom: 40px;
+        }
+
+        .project-gallery .section-heading {
+            margin-bottom: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 12px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover::after {
+            background: rgba(0,0,0,0.1);
+        }
+
+        .gallery-main {
+            grid-row: 1 / 3;
+            min-height: 320px;
+        }
+
+        .gallery-side {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .gallery-side-item {
+            height: 154px;
+        }
+
+        .gallery-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .gallery-bottom-item {
+            height: 140px;
+        }
+
+        /* Location */
+        .location-section .section-heading {
+            margin-bottom: 12px;
+        }
+
+        .location-section p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            position: sticky;
+            top: 88px;
+        }
+
+        .sidebar-card {
+            border-radius: 16px;
+            padding: 32px 28px;
+            margin-bottom: 16px;
+        }
+
+        .sidebar-highlights {
+            background: var(--dark-navy);
+            color: white;
+        }
+
+        .sidebar-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-accent);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sidebar-label::before,
+        .sidebar-label::after {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--gold-accent);
+        }
+
+        .sidebar-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .highlight-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .highlight-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .highlight-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: var(--gold-accent);
+        }
+
+        .btn-quote {
+            display: block;
+            width: 100%;
+            padding: 14px 24px;
+            background: var(--primary-red);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 16px;
+        }
+
+        .btn-quote:hover {
+            background: var(--primary-red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(224, 74, 63, 0.3);
+        }
+
+        .sidebar-services {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+        }
+
+        .services-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light-gray);
+            margin-bottom: 16px;
+        }
+
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .services-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+        }
+
+        .services-item svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--primary-red);
+            flex-shrink: 0;
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            background: var(--dark-navy);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .faq-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .faq-label::before,
+        .faq-label::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--gold-accent);
+        }
+
+        .faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .faq-item.active {
+            border-color: var(--gold-accent);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: var(--font-primary);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--gold-accent);
+        }
+
+        .faq-arrow {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-arrow {
+            background: var(--gold-accent);
+            transform: rotate(180deg);
+        }
+
+        .faq-arrow svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-arrow svg {
+            fill: var(--dark-navy);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-answer-inner {
+            padding: 0 24px 20px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+        }
+
+        /* ===== NAVIGATION CARDS ===== */
+        .nav-cards {
+            padding: 48px 0;
+            background: var(--bg-warm);
+        }
+
+        .nav-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .nav-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            border-color: var(--primary-red);
+        }
+
+        .nav-card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-warm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .nav-card:hover .nav-card-icon {
+            background: var(--primary-red);
+        }
+
+        .nav-card-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .nav-card:hover .nav-card-icon svg {
+            fill: white;
+        }
+
+        .nav-card-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-light-gray);
+            margin-bottom: 2px;
+        }
+
+        .nav-card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .nav-card.next {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #0A0A0A;
+            color: white;
+            padding: 64px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-logo img { 
+    height: 60px; 
+    margin-bottom: 16px; 
+    transition: var(--transition-smooth);
+    filter: drop-shadow(0px 0px 12px white); 
+}
+.footer-logo:hover img { transform: scale(1.05); }
+
+        .footer-desc {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .footer-cr {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .footer-heading {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+            padding-left: 4px;
+        }
+
+        .footer-contact-item {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .footer-bottom a {
+            color: var(--primary-red);
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+      /* ===== WHATSAPP ===== */
+.whatsapp-float { position: fixed; bottom: 30px; right: 30px; z-index: 998; display: flex; align-items: center; gap: 12px; }
+.whatsapp-btn {
+  width: 60px; height: 60px; background: var(--whatsapp-green); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: var(--transition-smooth); box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  position: relative; text-decoration: none;
+}
+.whatsapp-btn::before, .whatsapp-btn::after {
+  content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%;
+  background: var(--whatsapp-green); animation: wa-pulse 2s ease-out infinite; z-index: -1;
+}
+.whatsapp-btn::after { animation-delay: 0.5s; }
+.whatsapp-btn:hover { background: var(--whatsapp-hover); transform: scale(1.1); box-shadow: 0 6px 25px rgba(37,211,102,0.6); }
+.whatsapp-btn svg { width: 30px; height: 30px; fill: var(--white); }
+.whatsapp-tooltip {
+  background: var(--white); color: var(--text-dark); padding: 10px 16px; border-radius: 8px;
+  font-size: 13px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  white-space: nowrap; opacity: 0; transform: translateX(10px);
+  transition: var(--transition-smooth); pointer-events: none;
+}
+.whatsapp-float:hover .whatsapp-tooltip { opacity: 1; transform: translateX(0); }
+@keyframes wa-pulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.8); opacity: 0; } }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .sidebar-card {
+                margin-bottom: 0;
+            }
+
+            .btn-quote {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width:768px){
+
+    .header{
+    padding:0 15px;
+}
+
+.header-logo img{
+    height:55px;
+}
+
+.mobile-nav.open{
+    padding:20px;
+}
+
+    .header-nav{
+        display:none;
+    }
+
+    .header-right{
+        display:none;
+    }
+
+    .hamburger{
+        display:flex;
+    }
+
+    .mobile-nav{
+        display:flex;
+    }
+
+            .header-phone {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+
+            .hero {
+                height: 340px;
+            }
+
+            .hero-content {
+                padding: 0 24px 32px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-main {
+                grid-row: auto;
+                min-height: 240px;
+            }
+
+            .gallery-side {
+                flex-direction: row;
+            }
+
+            .gallery-side-item {
+                height: 120px;
+                flex: 1;
+            }
+
+            .gallery-bottom {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .faq-title {
+                font-size: 1.5rem;
+            }
+
+            .project-section {
+                padding: 40px 0;
+            }
+
+            .faq-section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width:480px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            .container{
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.hero-content{
+    padding:0 15px 25px;
+}
+
+.hero-title{
+    font-size:1.5rem;
+    line-height:1.3;
+}
+
+.header{
+    padding:0 12px;
+}
+
+.header-logo img{
+    height:48px;
+}
+
+            .hero {
+                height: 280px;
+            }
+
+            .gallery-side {
+                flex-direction: column;
+            }
+
+            .gallery-side-item {
+                height: 140px;
+            }
+
+            .gallery-bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-card.next {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1320px;
+            }
+        }
+        .hero-title{
+    animation: heroFloat 4s ease-in-out infinite;
+}
+
+@keyframes heroFloat{
+    0%,100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+}
+.hero-title{
+    opacity:0;
+    animation: heroTitleReveal 1.4s cubic-bezier(.19,1,.22,1) forwards;
+    animation-delay:0.4s;
+}
+
+@keyframes heroTitleReveal{
+
+    0%{
+        opacity:0;
+        transform:translateY(80px) scale(.9);
+        filter:blur(10px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+        filter:blur(0);
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+  <a href="../index.html" class="header-logo"><img src="logo.png" alt="Nobility Glory Logo"></a>
+  <nav class="header-nav">
+    <a href="../index.html">Home</a>
+    <a href="../projects.html#projects">All Projects</a>
+    <a href="#project">Project Overview</a>
+    <a href="#faq">FAQ</a>
+    <div class="dropdown">
+      <a>All Services</a>
+      <div class="dropdown-menu">
+        <a href="../manpower supply.html">Manpower Supply</a>
+        <a href="../heavy equipment rental.html">Heavy Equipment Rental</a>
+        <a href="../fuel eupply.html">Fuel Supply</a>
+        <a href="../scrap collection & recycling.html">Scrap Collection</a>
+        <a href="../catering services.html">Catering Services</a>
+      </div>
+    </div>
+  </nav>
+  <div class="header-right">
+    <a href="tel:+9660594658685" class="header-phone">+966 059 465 8685</a>
+    <a href="#request" class="btn-header">Request a Quote</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="../projects.html#projects" onclick="closeMobileNav()">All Projects</a>
+  <a href="#project" onclick="closeMobileNav()">Project Overview</a>
+  <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="javascript:void(0)" onclick="toggleMobileDropdown()">All Services</a>
+  <div class="mobile-dropdown" id="mobileDropdown">
+    <a href="../manpower supply.html" onclick="closeMobileNav()">Manpower Supply</a>
+    <a href="../heavy equipment rental.html" onclick="closeMobileNav()">Heavy Equipment Rental</a>
+    <a href="../fuel eupply.html" onclick="closeMobileNav()">Fuel Supply</a>
+    <a href="../scrap collection & recycling.html" onclick="closeMobileNav()">Scrap Collection</a>
+    <a href="../catering services.html" onclick="closeMobileNav()">Catering Services</a>
+  </div>
+  <a href="tel:+9660594658685" onclick="closeMobileNav()">+966 059 465 8685</a>
+  <a href="#request" class="btn-header" onclick="closeMobileNav()">Request Equipment</a>
+</div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge"> Giga-Projects & Tourism</span>
+            <h1 class="hero-title">Red Sea Project</h1>
+            <div class="hero-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Red Sea coast, Kingdom of Saudi Arabia
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECT OVERVIEW ===== -->
+    <section class="project-section" id="project">
+        <div class="container" >
+            <div class="project-grid">
+                <div class="project-main">
+                    <h2 class="section-heading reveal">Project Overview</h2>
+                    <p class="section-text reveal">
+                        A large-scale tourism and infrastructure giga-development along the Red Sea coast, supported with manpower and site services for contractor teams.
+
+                    </p>
+
+                    <div class="info-cards reveal">
+                        <div class="info-card">
+                            <div class="info-card-label">Client</div>
+                            <div class="info-card-value">Red Sea Company / PIF</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-label">Project Value</div>
+                            <div class="info-card-value">$17 billion</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-label">Duration</div>
+                            <div class="info-card-value">3 years</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-label">Our Role</div>
+                            <div class="info-card-value">Manpower & Equipment</div>
+                        </div>
+                    </div>
+
+                    <div class="project-description reveal">
+                        <h2 class="section-heading">Project Description</h2>
+                        <p>
+                            Nobility Glory supported contractor teams working within the Red Sea Project's development zones with workforce mobilization and site services. Giga-scale coastal builds carry logistics demands, remote site access, phased mobilization, that differ from a standard residential or commercial build.
+
+                        </p>
+                    </div>
+                    <!-- ===== NAVIGATION CARDS ===== -->
+    <section class="nav-cards">
+        <div class="container">
+            <div class="nav-cards-grid">
+                <a href="neom.html" class="nav-card reveal">
+                    <div class="nav-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </div>
+                    <div>
+                        <div class="nav-card-label">Previous</div>
+                        <div class="nav-card-title">Neom</div>
+                    </div>
+                </a>
+                <a href="yanbu phase 3.html" class="nav-card next reveal">
+                    <div class="nav-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </div>
+                    <div>
+                        <div class="nav-card-label">Next</div>
+                        <div class="nav-card-title">yanbu phase 3</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+                    <div class="location-section reveal">
+                        <h2 class="section-heading"></h2>
+                        
+                    </div>
+                </div>
+
+
+
+                <!-- Sidebar -->
+                <aside class="sidebar reveal">
+                    <div class="sidebar-card sidebar-highlights">
+                        <div class="sidebar-label">What We Deliver</div>
+                        <h3 class="sidebar-card-title">Project Highlights</h3>
+                        <div class="highlight-list">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                                </div>
+                                Multi-zone workforce mobilization
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                                </div>
+                                Remote site logistics 
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                                </div>
+                                HSE-aligned site conduct
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                                </div>
+                                Responsive to contractor mobilization timelines
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="../request.html" class="btn-quote" id="request">Request a Quote →</a>
+
+                    <div class="sidebar-card sidebar-services">
+                        <div class="services-label">Services Provided</div>
+                        <div class="services-list">
+                            <div class="services-item">
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                                Manpower Supply
+                            </div>
+                            <div class="services-item">
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                                Site Support Services
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="faq-header reveal">
+                <div class="faq-label">Project FAQ</div>
+                <h2 class="faq-title">Frequently Asked</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        How quickly can Nobility Glory mobilize crews to this project?
+                        <span class="faq-arrow">
+                            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We can mobilize crews within 48-72 hours for standard trades, with specialized teams available within 5-7 days depending on certification requirements and Red sea site access protocols.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        Which trades and certifications do you typically supply?
+                        <span class="faq-arrow">
+                            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We supply civil, MEP, finishing, scaffolding, welding, and heavy equipment operators — all with valid NEOM-approved certifications, HSE training, and medical fitness clearances.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        How do you ensure HSE and quality compliance on site?
+                        <span class="faq-arrow">
+                            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Our dedicated HSE officers conduct daily toolbox talks, weekly audits, and monthly compliance reviews aligned with NEOM's stringent safety standards and Saudi Aramco GI 7.028 requirements.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        Can you scale crew size during peak construction windows?
+                        <span class="faq-arrow">
+                            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. We maintain a reserve pool of pre-vetted workers and can scale up by 30-50% within 2 weeks during peak periods, with full accommodation and logistics support.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item active reveal">
+                    <button class="faq-question" aria-expanded="true">
+                        How is invoicing, payroll and accommodation handled?
+                        <span class="faq-arrow">
+                            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We manage the full employer-of-record stack: salaries, GOSI, medical insurance, iqama, accommodation and transport — invoiced to the contractor on agreed milestones with full audit trails.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a class="footer-logo"><img src="logo.png" alt="Nobility Glory"></a>
+                    <p class="footer-desc">
+                        Industrial support and services for EPC contractors and construction firms across Saudi Arabia — manpower, equipment, fuel, scrap recovery, and catering under one contract.
+                    </p>
+                    <p class="footer-cr">CR No. 7054099101</p>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="../manpower supply.html">Manpower Supply</a>
+                        <a href="../heavy equipment rental.html">Equipment Rental</a>
+                        <a href="../fuel supply.html">Fuel Supply</a>
+                        <a href="../scrap collection & recycling.html">Scrap Trading</a>
+                        <a href="../catering services.html">Catering</a>
+                        <a href="../request.html">About</a>
+                        <a href="../about.html">Contact</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="footer-contact-item">+966 059 465 8685</div>
+                    <div class="footer-contact-item">official@nobilityglory.com</div>
+                    <div class="footer-contact-item">www.nobilityglory.com</div>
+                    <div class="footer-contact-item" style="margin-top: 12px;">
+                        6563 King Faisal Road, Al Batha<br>
+                        District 2124, Umluj 48313, Kingdom of<br>
+                        Saudi Arabia
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2026 Nobility Glory. All rights reserved.</span>
+                <span>Developed by <a href="#">Ali Silam</a></span>
+            </div>
+        </div>
+    </footer>
+
+<!-- WHATSAPP -->
+<div class="whatsapp-float">
+  <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
+  <a href="https://wa.me/+9660594658685?text=Hello%2C%20I%20would%20like%20to%20request%20equipment%20rental." class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.914 15.914 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.338 22.612c-.39 1.1-1.932 2.014-3.178 2.28-.852.18-1.964.324-5.708-1.228-4.792-1.984-7.872-6.826-8.11-7.142-.228-.316-1.916-2.552-1.916-4.868 0-2.316 1.214-3.454 1.648-3.932.39-.428 1.024-.616 1.632-.616.198 0 .376.01.536.018.474.02.712.048 1.024.788.39.926 1.342 3.264 1.46 3.502.12.238.238.552.078.892-.148.348-.278.502-.516.772-.238.27-.462.476-.7.762-.218.258-.464.534-.198.998.266.462 1.184 1.966 2.542 3.178 1.748 1.558 3.228 2.042 3.688 2.272.46.23.73.194 1.002-.114.278-.316 1.188-1.384 1.502-1.856.308-.472.624-.392 1.048-.234.428.158 2.706 1.278 3.17 1.51.462.234.772.348.888.546.116.198.116 1.148-.274 2.248z"/></svg>
+  </a>
+    <script>
+        
+
+        // ===== FAQ ACCORDION =====
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Close all
+                faqItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+
+                // Open clicked if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                    question.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // ===== SCROLL REVEAL ANIMATION =====
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+        function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('open'); document.getElementById('hamburger').classList.toggle('active'); }
+function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.getElementById('hamburger').classList.remove('active'); document.getElementById('mobileDropdown').classList.remove('open'); }
+function toggleMobileDropdown() { document.getElementById('mobileDropdown').classList.toggle('open'); }
+document.addEventListener('click', (e) => { if (!document.getElementById('mobileNav').contains(e.target) && !document.getElementById('hamburger').contains(e.target)) closeMobileNav(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileNav(); });
+const cards = document.querySelectorAll('.info-card');
+
+const cardObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            cards.forEach((card,index)=>{
+                setTimeout(()=>{
+                    card.classList.add('animate');
+                }, index * 200);
+            });
+        }
+    });
+});
+
+document.querySelector('.info-cards') &&
+cardObserver.observe(document.querySelector('.info-cards'));
+
+
+
+    </script>
+</body>
+</html>
